@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -17,19 +18,25 @@ function Sidebar({ isOpen }: SidebarProps) {
         <h2 className="text-lg font-bold mb-6">Menu</h2>
 
         <ul className="space-y-4">
-          <li className="flex items-center gap-3">
-            <DashboardIcon />
-            <span>Dashboard</span>
+          <li>
+            <Link to="/main" className="flex items-center gap-3 hover:text-blue-400">
+              <DashboardIcon />
+              <span>Dashboard</span>
+            </Link>
           </li>
 
-          <li className="flex items-center gap-3">
-            <PersonIcon />
-            <span>Profile</span>
+          <li>
+            <Link to="/profile" className="flex items-center gap-3 hover:text-blue-400">
+              <PersonIcon />
+              <span>Profile</span>
+            </Link>
           </li>
 
-          <li className="flex items-center gap-3">
-            <SettingsIcon />
-            <span>Settings</span>
+          <li>
+            <Link to="/settings" className="flex items-center gap-3 hover:text-blue-400">
+              <SettingsIcon />
+              <span>Settings</span>
+            </Link>
           </li>
         </ul>
       </div>
