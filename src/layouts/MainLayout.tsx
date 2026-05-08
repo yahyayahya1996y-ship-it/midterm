@@ -15,13 +15,13 @@ function MainLayout({ children }: MainLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen flex flex-col">
       <Navbar onMenuClick={handleMenuClick} />
 
       <div className="flex flex-1">
-        <Sidebar isOpen={sidebarOpen} />
+        {sidebarOpen && <Sidebar isOpen={sidebarOpen} />}
 
-        <main className="flex-1 p-6">
+        <main className="flex-1 bg-gray-100 p-6 overflow-auto">
           {children}
         </main>
       </div>

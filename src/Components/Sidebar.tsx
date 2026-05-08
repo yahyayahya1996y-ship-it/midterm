@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -8,6 +8,11 @@ type SidebarProps = {
 };
 
 function Sidebar({ isOpen }: SidebarProps) {
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    `flex items-center gap-3 p-2 rounded ${
+      isActive ? "bg-blue-600 text-white" : "hover:bg-gray-700"
+    }`;
+
   return (
     <aside
       className={`bg-gray-900 text-white h-screen transition-all duration-300 ${
@@ -19,24 +24,24 @@ function Sidebar({ isOpen }: SidebarProps) {
 
         <ul className="space-y-4">
           <li>
-            <Link to="/main" className="flex items-center gap-3 hover:text-blue-400">
+            <NavLink to="/main" className={linkClass}>
               <DashboardIcon />
               <span>Dashboard</span>
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link to="/profile" className="flex items-center gap-3 hover:text-blue-400">
+            <NavLink to="/profile" className={linkClass}>
               <PersonIcon />
               <span>Profile</span>
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link to="/settings" className="flex items-center gap-3 hover:text-blue-400">
+            <NavLink to="/settings" className={linkClass}>
               <SettingsIcon />
               <span>Settings</span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
